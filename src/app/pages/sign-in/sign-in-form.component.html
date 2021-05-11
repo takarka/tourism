@@ -1,0 +1,65 @@
+<app-header title="Вход" stepBack=""></app-header>
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <label for="fname">Номер телефона</label>
+    <input
+      formControlName="username"
+      type="text"
+      id="fname"
+      name="fname"
+      placeholder="Введите номер телефона"
+      prefix="+7("
+      mask="000) 000-0000"
+      (input)="isAuthFailed = false"
+    />
+    <label for="password">Пароль</label>
+    <span class="input-placeholder">
+      <input
+        style="float: left"
+        formControlName="password"
+        type="password"
+        id="inputPassword"
+        name="password"
+        [type]="hide ? 'password' : 'text'"
+        placeholder="Введите пароль"
+        required
+        (input)="isAuthFailed = false"
+      />
+      <mat-icon class="placeholder" (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </span>
+    <div *ngIf="isAuthFailed" class="form-error-message">
+      <span>Вы неправильно ввели свой пароль</span>
+    </div>
+    <div
+      style="width: 100%; margin-top: 27px;"
+      fxLayout="row"
+      fxLayoutAlign="end"
+    >
+      <a routerLink="/forget-password" class="form-actions__forget accent">
+        Забыли пароль?
+      </a>
+    </div>
+  </form>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    [disabled]="form.invalid"
+    (click)="login()"
+  >
+    Войти
+  </button>
+  <span class="form-actions__forget"
+    >Ещё не зарегистрированы?
+    <a routerLink="/sign-up" class="accent"> Регистрация </a></span
+  >
+</div>

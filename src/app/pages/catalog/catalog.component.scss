@@ -1,0 +1,107 @@
+.catalog-page {
+  padding: 20px 25px;
+  background: #f7f8fa;
+}
+
+.header {
+  height: 56px;
+  background-color: inherit;
+}
+
+.page-title {
+  width: 100%;
+  text-align: center;
+  margin-left: 40px;
+  font-size: 20px;
+}
+
+.custom-card {
+  height: 510px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.card-image {
+  width: 100%;
+  height: 40%;
+  // background-image: url("../../../assets/images/auth-page/wellcome.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.card-info {
+  padding: 14px 20px;
+}
+
+.card-info-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #373f41;
+}
+
+.card-info-date {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #999999;
+  padding-top: 10px;
+}
+
+.card-info-block {
+  width: 100%;
+  height: 34px;
+  border: 1px solid #d6d8e7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.block-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 34px;
+  color: #373f41;
+}
+
+.block-icon {
+  width: 16px;
+  line-height: 34px;
+  padding: 4px;
+}
+
+.card-divider {
+  width: 100%;
+  height: 3px;
+  background: #f7f8fa;
+}
+
+.card-footer {
+  padding: 10px 20px;
+}
+
+.footer-info {
+  color: #373f41;
+}
+
+.footer-info-first {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.footer-info-second {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.footer-price-first {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  color: #d0a659;
+}

@@ -1,0 +1,61 @@
+<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center center">
+  <div
+    matRipple
+    *ngFor="let tour of tours"
+    class="custom-card"
+    fxLayout="column"
+    fxLayoutAlign="space-between stretch"
+    (click)="goToDetail(tour)"
+  >
+    <div
+      class="card-image"
+      [style.background-image]="'url(' + getTourImage(tour) + ')'"
+    ></div>
+    <div class="card-info" fxLayout="column" fxLayoutAlign="center start">
+      <span class="card-info-title"
+        >{{ getTourFare(tour) }} - {{ getTourType(tour) }}</span
+      >
+      <span class="card-info-date"
+        >{{ tour.from_date | date: "dd.MM.yyyy" }} -
+        {{ tour.to_date | date: "dd.MM.yyyy" }}</span
+      >
+      <div class="card-info-block" fxLayout="row">
+        <mat-icon class="block-icon" svgIcon="svg_hostel"></mat-icon>
+        <span class="block-title">{{
+          tour.hotel_mekka && tour.hotel_mekka.name ? tour.hotel_mekka.name : ""
+        }}</span>
+      </div>
+      <div class="card-info-block" fxLayout="row">
+        <mat-icon class="block-icon" svgIcon="svg_kaaba"></mat-icon>
+        <span class="block-title">{{ tour.to_kaaba }}</span>
+      </div>
+      <div class="card-info-block" fxLayout="row">
+        <mat-icon class="block-icon" svgIcon="svg_eat"></mat-icon>
+        <span class="block-title">Двухразовое питание</span>
+      </div>
+    </div>
+    <div class="card-divider"></div>
+    <div
+      class="card-footer"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+    >
+      <div class="footer-info" fxLayout="column">
+        <span class="footer-info-first">Цена за</span>
+        <span class="footer-info-second">1 взрослый</span>
+      </div>
+      <div class="footer-price" fxLayout="column">
+        <span class="footer-price-first"
+          >от {{ tour.price! - 0 | numberFormat }} тг</span
+        >
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="tours ==null || tours.length == 0"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <span>Пусто</span>
+  </div>
+</div>

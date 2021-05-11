@@ -1,0 +1,30 @@
+<app-header title="Регистрация" [stepBack]="routers.WELLCOME"></app-header>
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <label for="code">Смс код</label>
+    <input
+      formControlName="verify_number"
+      type="text"
+      id="code"
+      name="code"
+      placeholder="Введите полученный код"
+    />
+  </form>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+    (click)="verify()"
+  >
+    Подтвердить
+  </button>
+</div>

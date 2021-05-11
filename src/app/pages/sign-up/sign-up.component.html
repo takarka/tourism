@@ -1,0 +1,84 @@
+<app-header title="Регистрация" stepBack=""></app-header>
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <label for="fname">Номер телефона</label>
+    <input
+      formControlName="username"
+      type="text"
+      id="fname"
+      name="fname"
+      placeholder="Введите номер телефона"
+      prefix="+7("
+      mask="000) 000-0000"
+      (input)="isAlreadyRegister = false"
+    />
+    <div *ngIf="isAlreadyRegister" class="form-error-message">
+      <span>Вы уже зарегистрированы</span>
+    </div>
+
+    <label for="password">Пароль</label>
+    <span class="input-placeholder">
+      <input
+        style="float: left"
+        formControlName="password"
+        type="password"
+        id="inputPassword"
+        name="password"
+        [type]="hide ? 'password' : 'text'"
+        placeholder="Введите пароль"
+        required
+        (input)="checkPasswordsForEquality()"
+      />
+      <mat-icon class="placeholder" (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </span>
+
+    <label for="password">Повторите пароль</label>
+    <span class="input-placeholder">
+      <input
+        style="float: left"
+        formControlName="repeat_password"
+        type="password"
+        id="inputPassword"
+        name="password"
+        [type]="hide ? 'password' : 'text'"
+        placeholder="Повторно введите пароль"
+        required
+        (input)="checkPasswordsForEquality()"
+      />
+      <mat-icon class="placeholder" (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </span>
+    <div *ngIf="arePassNotMatch" class="form-error-message">
+      <span>Ваши пароли не совпадают</span>
+    </div>
+
+    <mat-checkbox class="checkbox-agree" formControlName="isAgree"
+      >Я соглашаюсь с правилами и условиями конфиденциальности и на обработку
+      данных</mat-checkbox
+    >
+  </form>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid || (isAgree && !isAgree.value) || isAlreadyRegister || arePassNotMatch"
+    (click)="register()"
+  >
+    Зарегистрироваться
+  </button>
+  <span
+    >Уже есть аккаунт?
+    <a routerLink="/sign-in" class="form-actions__forget"> Войти </a></span
+  >
+</div>

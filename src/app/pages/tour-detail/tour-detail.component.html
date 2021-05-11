@@ -1,0 +1,141 @@
+<app-header [title]="getTourType()" [stepBack]="routers.TOUR_LIST"></app-header>
+
+<div class="tour-detail-page" fxLayout="column" fxLayoutAlign="start center">
+  <div class="card-image">
+    <carousel
+      class="my-carousel"
+      [cellsToShow]="1"
+      objectFit="cover"
+      [images]="images"
+    >
+    </carousel>
+  </div>
+  <div class="card-info" fxLayout="column" fxLayoutAlign="start start">
+    <span class="card-info-title"
+      >{{ getTourFare() }} - {{ getTourType() }}</span
+    >
+    <span class="card-info-date"
+      >{{ tour.from_date | date: "dd.MM.yyyy" }} -
+      {{ tour.to_date | date: "dd.MM.yyyy" }}</span
+    >
+
+    <div class="card-divider"></div>
+    <div
+      class="card-footer"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+    >
+      <div class="footer-info" fxLayout="column">
+        <span class="footer-info-first">Цена за</span>
+        <span class="footer-info-second">1 взрослый</span>
+      </div>
+      <div class="footer-price" fxLayout="column">
+        <span class="footer-price-first"
+          >от {{ tour.price! - 0 | numberFormat }} тг</span
+        >
+      </div>
+    </div>
+
+    <div class="card-info-block" fxLayout="row">
+      <mat-icon class="block-icon" svgIcon="svg_hostel"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <span class="block-title"
+          >Мекка:
+          {{
+            tour.hotel_mekka && tour.hotel_mekka.name
+              ? tour.hotel_mekka.name
+              : ""
+          }}</span
+        >
+        <span class="block-subtitle">Тип размещения: двухместный</span>
+      </div>
+    </div>
+
+    <div class="card-info-block" fxLayout="row">
+      <mat-icon class="block-icon" svgIcon="svg_hostel"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <span class="block-title"
+          >Медина:
+          {{
+            tour.hotel_madina && tour.hotel_madina.name
+              ? tour.hotel_madina.name
+              : ""
+          }}</span
+        >
+        <span class="block-subtitle">Тип размещения: двухместный</span>
+      </div>
+    </div>
+
+    <div class="card-info-block" fxLayout="row">
+      <mat-icon class="block-icon" svgIcon="svg_kaaba"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <span class="block-title">{{ tour.to_kaaba }}</span>
+      </div>
+    </div>
+
+    <div class="card-info-block" fxLayout="row">
+      <mat-icon class="block-icon" svgIcon="svg_aircraft"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <span class="block-title"
+          >Вылет:
+          {{
+            tour.departure && tour.departure.departure_date
+              ? (tour.departure.departure_date | date: "dd.MM.yyyy HH:mm")
+              : ""
+          }}</span
+        >
+        <span class="block-subtitle">
+          {{
+            tour.departure && tour.departure.aircraft
+              ? tour.departure.aircraft.name
+              : ""
+          }}
+        </span>
+      </div>
+    </div>
+
+    <div class="card-info-block" fxLayout="row">
+      <mat-icon class="block-icon" svgIcon="svg_aircraft"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <span class="block-title"
+          >Прилет:
+          {{
+            tour.arrival && tour.arrival.departure_date
+              ? (tour.arrival.departure_date | date: "dd.MM.yyyy HH:mm")
+              : ""
+          }}</span
+        >
+        <span class="block-subtitle">
+          {{
+            tour.arrival && tour.arrival.aircraft
+              ? tour.arrival.aircraft.name
+              : ""
+          }}
+        </span>
+      </div>
+    </div>
+
+    <span class="services-caption">Включено: </span>
+
+    <div
+      class="card-info-block service"
+      fxLayout="row"
+      *ngFor="let service of tour.services"
+    >
+      <mat-icon class="block-icon service-icon" svgIcon="svg_dot"></mat-icon>
+      <div class="block-caption" fxLayout="column">
+        <p class="service-title">{{ service.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <button
+    class="button-buy"
+    mat-raised-button
+    color="primary"
+    (click)="goToTourBuyForm()"
+  >
+    Купить тур за {{ tour.price! - 0 | numberFormat }} тг
+  </button>
+</div>

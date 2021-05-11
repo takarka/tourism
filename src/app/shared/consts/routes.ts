@@ -1,0 +1,17 @@
+export enum routes {
+  NOT_FOUND = '/404',
+  WELLCOME = '/',
+  SIGN_IN = '/sign-in',
+  SIGN_UP = '/sign-up',
+  SIGN_UP_VERIFY = '/sign-up-verify',
+  FORGET_PASSWORD = '/forget-password',
+  FILL_PERSON_DATA = '/fill-data',
+  TOUR_LIST = '/tour-list',
+  TOUR_DETAIL = '/tour-detail',
+  TOUR_BUY_FORM = '/tour-buy-form',
+  ORDER_SUCCESS = '/order-success',
+  ORDER_FAIL = '/order-fail',
+  PROFILE = '/profile',
+  MY_TOUR_DETAIL = '/profile-my-tour',
+  ADD_DEPOSIT = '/add-deposit',
+}

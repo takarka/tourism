@@ -1,0 +1,42 @@
+<app-header title="Купить тур" [stepBack]="routers.TOUR_DETAIL"></app-header>
+
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <label for="passport_id">Номер паспорта</label>
+    <input
+      formControlName="passport_id"
+      type="number"
+      id="passport_id"
+      name="passport_id"
+      placeholder="Введите номер"
+    />
+
+    <mat-checkbox
+      class="checkbox-deposit"
+      (change)="useDepositChanged($event.checked)"
+    >
+      <span class="checkbox-deposit-title">Потратить депозиты</span>
+      <span class="checkbox-deposit-subtitle"
+        >Ваш счет: {{ walletCurrentAmount! - 0 | numberFormat }} тг</span
+      >
+    </mat-checkbox>
+  </form>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+    (click)="buyOrder()"
+  >
+    {{ getTotalAmount() }}
+    тг
+  </button>
+</div>

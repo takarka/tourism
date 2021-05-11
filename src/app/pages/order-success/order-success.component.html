@@ -1,0 +1,22 @@
+<div
+  class="login-page"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="15px"
+>
+  <mat-icon class="icon" svgIcon="svg_success"></mat-icon>
+  <span class="title">Оплата прошла успешно!</span>
+  <span class="description">{{
+    transactionType == 1 ? successDeposit : successTour
+  }}</span>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    (click)="goToCatalog()"
+  >
+    Вернуться на главную
+  </button>
+</div>

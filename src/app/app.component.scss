@@ -1,0 +1,56 @@
+@import "src/assets/styles/colors";
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidenav {
+  width: 65%;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+
+  /* Direction of the items, can be row or column */
+  flex-direction: column;
+}
+
+.sidenav-items {
+  flex: 1;
+  height: calc(100% - 126px);
+  a {
+    padding: 16px 8px 16px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+    display: flex;
+
+    // Direction of the items, can be row or column
+    flex-direction: column;
+  }
+
+  a:hover {
+    color: #d0a659;
+  }
+}
+
+.sidenav-actions {
+  height: 70px;
+  width: 100%;
+  background-color: white;
+
+  .logout {
+    height: 40px;
+    margin-left: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 12px;
+    background-color: transparent;
+    color: $main-color;
+    border: 1px solid $main-color;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+}

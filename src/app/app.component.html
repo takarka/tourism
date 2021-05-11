@@ -1,0 +1,23 @@
+<mat-drawer-container
+  class="wrapper"
+  hasBackdrop="true"
+  (backdropClick)="backdropClicked()"
+>
+  <mat-drawer class="sidenav" [opened]="isOpen" mode="over">
+    <div style="height: 56px"></div>
+    <div class="sidenav-items">
+      <a routerLink="/tour-list" (click)="isOpen = !isOpen">Все туры</a>
+      <a routerLink="/profile" (click)="isOpen = !isOpen">Профиль</a>
+    </div>
+    <div class="sidenav-actions">
+      <button class="logout" mat-stroked-button color="primary" (click)="logout()" >
+        <mat-icon class="block-icon">login </mat-icon>
+        Выйти
+      </button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+  </mat-drawer-content>
+</mat-drawer-container>

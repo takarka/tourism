@@ -1,0 +1,108 @@
+<app-header title="Мой профиль" [isWhite]="false" [menu]="true"></app-header>
+<mat-tab-group class="my-custom-tab" [selectedIndex]="tabIndex">
+  <mat-tab label="Мои данные">
+    <div class="tab-content" fxLayout="column" fxLayoutAlign="start">
+      <div fxLayout="row" fxLayoutGap="20px">
+        <img
+          class="avatar"
+          src="assets/images/avatar_default.png"
+          alt="person-avatar"
+        />
+        <div
+          class="main-info"
+          fxLayout="column"
+          fxLayoutGap="20px"
+          fxLayoutAlign="center start"
+        >
+          <span class="fullname">{{
+            myUser ? myUser.first_name + " " + myUser.last_name : ""
+          }}</span>
+          <div
+            class="add-funds"
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            (click)="addFunds()"
+          >
+            <mat-icon class="icon" svgIcon="svg_wallet"></mat-icon>
+            <span class="title">Пополнить счет</span>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-between start" class="form">
+        <mat-radio-group
+          class="gender-radio-button"
+          fxLayout="row"
+          fxLayoutAlign="start"
+          fxLayoutGap="45px"
+          aria-label="Выберите пол"
+        >
+          <mat-radio-button
+            value="1"
+            [checked]="myGender === 1"
+            [disabled]="myGender === 2"
+            >Мужской</mat-radio-button
+          >
+          <mat-radio-button
+            value="2"
+            [checked]="myGender === 2"
+            [disabled]="myGender === 1"
+            >Женский</mat-radio-button
+          >
+        </mat-radio-group>
+        <div
+          class="card-info-block"
+          fxLayout="row"
+          fxLayoutAlign="start center"
+        >
+          <mat-icon class="block-icon" svgIcon="svg_person"></mat-icon>
+          <span class="block-title">{{
+            myUser ? myUser.first_name + " " + myUser.last_name : ""
+          }}</span>
+        </div>
+        <div
+          class="card-info-block"
+          fxLayout="row"
+          fxLayoutAlign="start center"
+        >
+          <mat-icon class="block-icon" svgIcon="svg_phone"></mat-icon>
+          <span class="block-title">{{
+            myUser ? "+" + myUser.username : ""
+          }}</span>
+        </div>
+        <div
+          class="card-info-block"
+          fxLayout="row"
+          fxLayoutAlign="start center"
+        >
+          <mat-icon class="block-icon" svgIcon="svg_wallet"></mat-icon>
+          <span class="block-title">
+            Депозит:
+            {{ myWallet ? (myWallet.current_amount! - 0 | numberFormat) : "" }}
+            тг</span
+          >
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Купленные туры"
+    ><div class="tab-content">
+      <app-my-tours [tours]="activeTours"></app-my-tours>
+    </div>
+  </mat-tab>
+  <!-- <mat-tab label="Будущие туры"
+    ><div class="tab-content" fxLayout="column" fxLayoutAlign="start">
+      Content 3
+    </div>
+  </mat-tab> -->
+</mat-tab-group>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    (click)="goToCatalog()"
+  >
+    Вернуться на главную
+  </button>
+</div>

@@ -1,0 +1,144 @@
+<app-header title="Заполните ваши данные"></app-header>
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <div
+      style="width: 100%"
+      fxLayout="column"
+      fxLayoutAlign="space-between start"
+      fxFlex="noshrink"
+      formGroupName="user"
+    >
+      <label for="first_name">Имя</label>
+      <input
+        formControlName="first_name"
+        type="text"
+        id="first_name"
+        name="first_name"
+        placeholder="Введите ваше имя"
+      />
+      <label for="last_name">Фамилия</label>
+      <input
+        formControlName="last_name"
+        type="text"
+        id="last_name"
+        name="last_name"
+        placeholder="Введите вашу фамилию"
+      />
+      <mat-radio-group
+        fxLayout="row"
+        fxLayoutAlign="space-between"
+        class="form__input padding-bot"
+        aria-label="Выберите пол"
+        formControlName="gender"
+      >
+        <mat-radio-button value="1">Мужской</mat-radio-button>
+        <mat-radio-button value="2">Женский</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <label for="salary">Ваша заработная плата</label>
+    <input
+      formControlName="salary"
+      id="salary"
+      name="salary"
+      placeholder="Напишите сумму"
+      currencyMask
+      [options]="{
+        align: 'left',
+        nullable: true,
+        prefix: '',
+        thousands: ' ',
+        decimal: ',',
+        precision: 0
+      }"
+    />
+
+    <label for="position">Образование</label>
+    <mat-form-field class="form__input" floatLabel="never">
+      <mat-label>Выберите образование</mat-label>
+      <mat-select formControlName="education" selected="1">
+        <mat-option value="null">Нет</mat-option>
+        <mat-option value="0">Высшее</mat-option>
+        <mat-option value="1">Неоконченное высшее</mat-option>
+        <mat-option value="2">Среднее</mat-option>
+        <mat-option value="3">Неоконченное среднее</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label for="job">Место работы</label>
+    <input
+      formControlName="job"
+      type="text"
+      id="job"
+      name="job"
+      placeholder="Наименование компании"
+    />
+
+    <label for="position">Должность</label>
+    <input
+      formControlName="position"
+      type="text"
+      id="position"
+      name="position"
+      placeholder="Ваша должность на работе"
+    />
+
+    <label for="position">Семейное положение</label>
+    <mat-form-field class="form__input" floatLabel="never">
+      <mat-label>Выберите положение</mat-label>
+      <mat-select formControlName="family_status">
+        <mat-option value="null">Выберите положение</mat-option>
+        <mat-option value="0">Замужем</mat-option>
+        <mat-option value="0">Женат</mat-option>
+        <mat-option value="1">Не женат</mat-option>
+        <mat-option value="1">Не замужем</mat-option>
+        <mat-option value="2">Разведен</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label for="position">Сколько у вас детей?</label>
+    <mat-form-field class="form__input" floatLabel="never">
+      <mat-label>Выберите количество</mat-label>
+      <mat-select formControlName="kids">
+        <mat-option value="0">Нет</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+        <mat-option value="6">6</mat-option>
+        <mat-option value="7">7</mat-option>
+        <mat-option value="8">8</mat-option>
+        <mat-option value="9">9</mat-option>
+        <mat-option value="10">10</mat-option>
+        <mat-option value="11">11</mat-option>
+        <mat-option value="12">12</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <button
+      class="submit-button"
+      mat-raised-button
+      color="primary"
+      (click)="submit()"
+      [disabled]="form.invalid"
+    >
+      Сохранить данные
+    </button> -->
+  </form>
+</div>
+<div fxFlex="noshrink" class="form-actions" fxLayout="column">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    (click)="submit()"
+    [disabled]="form.invalid"
+  >
+    Сохранить данные
+  </button>
+</div>

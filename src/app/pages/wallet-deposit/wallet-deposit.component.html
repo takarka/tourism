@@ -1,0 +1,31 @@
+<app-header title="Пополнения счета" [stepBack]="routers.PROFILE"></app-header>
+
+<div class="login-page" fxLayout="column" fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="space-between start"
+    class="form"
+    [formGroup]="form"
+  >
+    <label for="amount">Сумма</label>
+    <input
+      formControlName="amount"
+      type="number"
+      id="amount"
+      name="amount"
+      placeholder="Какую сумму хотите пополнить?"
+    />
+  </form>
+</div>
+<div class="form-actions" fxLayout="column" fxLayoutGap="25px">
+  <button
+    class="form-actions__login"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+    (click)="addDeposit()"
+  >
+    Пополнить счет
+  </button>
+</div>

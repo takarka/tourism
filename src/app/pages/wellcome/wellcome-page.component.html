@@ -1,0 +1,51 @@
+<div class="wellcome-page__image"></div>
+<div
+  fxLayout="column"
+  fxLayoutAlign="space-between center"
+  class="wellcome-page__content"
+>
+  <div
+    fxLayout="column"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="10px"
+    class="wellcome-page__content-text"
+  >
+    <span class="wellcome-page__content-title">Добро пожаловать!</span>
+    <p class="wellcome-page__content-description">
+      Если у вас есть аккаунт, вы можетет просто войти в систему. Если нет, вы
+      можете зарегистрироваться сейчас. Или просто пропустие это шаг.
+    </p>
+  </div>
+  <div
+    fxLayout="column"
+    fxLayoutGap="24px"
+    class="wellcome-page__content-actions"
+  >
+    <div fxLayout="row">
+      <button
+        class="wellcome-page__content-actions-sign-up"
+        mat-raised-button
+        (click)="signUp()"
+      >
+        Регистрация
+      </button>
+      <span class="flexExpand"></span>
+      <button
+        class="wellcome-page__content-actions-sign-in"
+        mat-raised-button
+        color="primary"
+        (click)="signIn()"
+      >
+        Войти
+      </button>
+    </div>
+    <!-- <a
+      fxFlex
+      href="#"
+      routerLink="/login/sign-in/"
+      class="wellcome-page__content-actions-skip"
+    >
+      Пропустить
+    </a> -->
+  </div>
+</div>

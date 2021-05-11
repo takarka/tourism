@@ -1,0 +1,146 @@
+@import "./assets/styles/material.scss";
+@import "./assets/styles/colors.scss";
+
+html,
+body {
+  height: 100%;
+  background: #f7f8fa;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flexExpand {
+  flex: 1 1 auto;
+}
+
+.spacer-hor {
+  flex: 1;
+}
+
+.spacer-ver {
+  flex: 1 1 auto;
+}
+
+.mat-checkbox-label {
+  white-space: initial; // NEW
+}
+
+.mat-checkbox-inner-container {
+  margin-top: 4px !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important; /*click effect color change*/
+  background-color: $main-color !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $main-color !important; /*inner circle color change*/
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $main-color !important; /*outer ring color change*/
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: $main-color !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $main-color;
+}
+
+// //mat-input focused color
+// .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+//   color: $main-color;
+// }
+
+mat-form-field {
+  border: 1px solid rgba(213, 213, 213, 0.6);
+  box-sizing: border-box;
+  border-radius: 12px;
+  height: 52px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0 20px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  display: none;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+  height: 100%;
+}
+
+.mat-form-field-infix {
+  border-top: 17px solid transparent;
+}
+
+.mat-form-field-flex {
+  height: 100%;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0;
+  padding-left: 20px;
+  padding-top: 13px;
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $main-color;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $main-color;
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+  position: fixed;
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+}
+
+.my-custom-tab {
+  .mat-tab-labels {
+    height: 34px;
+  }
+  .mat-tab-label {
+    height: 34px;
+    border: 1px solid #d6d8e7;
+    border-radius: 12px;
+    margin-right: 10px;
+  }
+
+  .mat-tab-label-active {
+    opacity: 1;
+    color: white;
+    background-color: $main-color;
+  }
+
+  mat-ink-bar {
+    display: none;
+  }
+
+  .mat-tab-header {
+    border-bottom: none;
+  }
+}
+
+.checkbox-deposit {
+  .mat-checkbox-layout .mat-checkbox-label {
+    display: flex;
+    flex-direction: column;
+  }
+}

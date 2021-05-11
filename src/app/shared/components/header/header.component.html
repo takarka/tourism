@@ -1,0 +1,21 @@
+<mat-toolbar class="header" [ngStyle]="{ backgroundColor: isWhite ? 'white' : '#f7f8fa' }">
+  <button
+    *ngIf="stepBack != null"
+    class="header-button"
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="goBack()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button
+    *ngIf="menu && stepBack == null"
+    class="header-button"
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="toggleMenu()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="page-title">{{ title }}</span></mat-toolbar
+>
