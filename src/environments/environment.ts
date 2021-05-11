@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  APIEndpoint: 'http://zamzam-store.kz:8000'
+  APIEndpoint: 'localhost:8000'
 };
 
 /*
